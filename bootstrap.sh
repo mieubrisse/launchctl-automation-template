@@ -70,4 +70,6 @@ mv "SCRIPTNAME.sh" "${script_filename}"
 
 echo "✅ Bootstrap successful"
 echo ""
-ecoh "💡 You can now remove this ${0} script"
+echo "NEXT STEPS"
+echo " ☑️ Remove this ${0} script"
+echo " ☑️ Modify ${script_filename} with your code"
