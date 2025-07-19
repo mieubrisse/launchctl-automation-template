@@ -9,7 +9,7 @@ script_dirpath="$(cd "$(dirname "${0}")" && pwd)"
 is_valid_filename="false"
 
 echo "What are we going to call your main script (the one that will be called by launchctl)?"
-echo "For example, 'safebrew.sh'"
+echo "For example: safebrew.sh"
 while ! "${is_valid_filename}"; do
     read -p "Script name: " raw_script_filename
 
@@ -38,9 +38,9 @@ done
 is_valid_label="false"
 
 echo ""
-echo "What label will your script have in launchctl?"
+echo "How will launchctl call your job in 'launchctl list'?"
 echo "This will get filled into the <Label> key in the .plist file"
-echo "For example, 'Safebrew'"
+echo "For example: safebrew"
 while ! "${is_valid_label}"; do
     read -p "Label: " raw_label_name
 
