@@ -68,6 +68,7 @@ sed "s/USER_LABEL/${label_name}/g" "${tmp_filepath}" > "${SHARED_CONSTS_FILEPATH
 
 mv "SCRIPTNAME.sh" "${script_filename}"
 
+echo ""
 echo "✅ Bootstrap successful"
 echo ""
 echo "NEXT STEPS"
