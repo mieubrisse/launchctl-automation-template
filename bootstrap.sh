@@ -67,3 +67,7 @@ sed "s/USER_SCRIPT_FILENAME/${script_filename}/g" "${SHARED_CONSTS_FILEPATH}" > 
 sed "s/USER_LABEL/${label_name}/g" "${tmp_filepath}" > "${SHARED_CONSTS_FILEPATH}"
 
 mv "SCRIPTNAME.sh" "${script_filename}"
+
+echo "✅ Bootstrap successful"
+echo ""
+ecoh "💡 You can now remove this ${0} script"
