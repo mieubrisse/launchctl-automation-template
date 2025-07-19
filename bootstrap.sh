@@ -60,10 +60,10 @@ while ! "${is_valid_label}"; do
     is_valid_label="true"
 done
 
-EXAMPLE_CONFIG_FILEPATH="${script_dirpath}/config.env.example"
+SHARED_CONSTS_FILEPATH="${script_dirpath}/shared-consts.env"
 
 tmp_filepath="$(mktemp)"
-sed "s/SCRIPTNAME/${script_filename}/g" "${EXAMPLE_CONFIG_FILEPATH}" > "${tmp_filepath}"
-sed "s/LABEL/${label_name}/g" "${tmp_filepath}" > "${EXAMPLE_CONFIG_FILEPATH}"
+sed "s/SCRIPTNAME/${script_filename}/g" "${SHARED_CONSTS_FILEPATH}" > "${tmp_filepath}"
+sed "s/LABEL/${label_name}/g" "${tmp_filepath}" > "${SHARED_CONSTS_FILEPATH}"
 
 mv "SCRIPTNAME.sh" "${script_filename}"
