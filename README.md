@@ -1,6 +1,6 @@
 Launchctl Automation Template
 =============================
-This is a template for building a project that gets installed in Mac launchctl.
+This is a template for building a script that gets installed in Mac launchctl.
 
 Why?
 
