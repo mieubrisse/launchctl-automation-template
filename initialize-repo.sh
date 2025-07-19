@@ -13,7 +13,7 @@ echo "For example, 'safebrew.sh'"
 while ! "${is_valid_filename}"; do
     read -p "Script name: " raw_script_filename
 
-    if [ -z "${script_filename}" ]; then
+    if [ -z "${raw_script_filename}" ]; then
         echo "Script name cannot be empty" >&2
         echo ""
         continue
@@ -35,30 +35,32 @@ while ! "${is_valid_filename}"; do
     is_valid_filename="true"
 done
 
-echo "What are we going to call your main script (the one that will be called by launchctl)?"
-echo "For example, 'safebrew.sh'"
-while ! "${is_valid_filename}"; do
-    read -p "Script name: " script_filename
+is_valid_label="false"
 
-    if [ -z "${script_filename}" ]; then
-        echo "Script name cannot be empty" >&2
+echo ""
+echo "What label will your script have in launchctl?"
+echo "This will get filled into the <Label> key in the .plist file"
+echo "For example, 'Safebrew'"
+while ! "${is_valid_label}"; do
+    read -p "Label: " raw_label_name
+
+    if [ -z "${raw_label_name}" ]; then
+        echo "Label cannot be empty" >&2
         echo ""
         continue
     fi
 
-    script_filename="${script_filename// /}"
-    if [ -z "${script_filename// /}" ]; then
-        echo "Script name cannot be whitespace" >&2
+    label_name="${raw_label_name// /}"
+    if [ "${label_name}" != "${raw_label_name}" ]; then
+        echo "Label cannot be whitespace" >&2
         echo ""
         continue
     fi
 
-    if [ "${script_filename%%.sh}" = "${script_filename}" ]; then
-        echo "Script filename must end with '.sh'" >&2
-        echo "" 
-        continue
-    fi
-
-    is_valid_filename="true"
+    is_valid_label="true"
 done
 
+echo "'${script_filename}'"
+echo "'${label_name}'"
+
+mv "SCRIPTNAME.sh" "${script_filename}"
