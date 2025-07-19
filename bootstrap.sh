@@ -60,7 +60,7 @@ while ! "${is_valid_label}"; do
     is_valid_label="true"
 done
 
-echo "'${script_filename}'"
-echo "'${label_name}'"
+sed -i "s/SCRIPTNAME/${script_filename}/g" config.env.example
+sed -i "s/LABEL/${label_name}/g" config.env.example
 
 mv "SCRIPTNAME.sh" "${script_filename}"
